@@ -61,16 +61,16 @@
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:9rem 2.5rem 6rem;z-index:1;overflow:hidden}
   .hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,200,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,200,.025) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 75% 75% at 50% 50%,black 30%,transparent 100%)}
   .hi{position:relative;max-width:860px}
-  .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:11px;color:var(--cyan);letter-spacing:.18em;text-transform:uppercase;margin-bottom:2rem;animation:ru .7s ease forwards .2s}
+  .eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:11px;color:var(--cyan);letter-spacing:.18em;text-transform:uppercase;margin-bottom:2rem}
   .eyebrow::before{content:'//';color:var(--text-dim)}
-  h1{font-family:var(--serif);font-size:clamp(3.8rem,9vw,7.5rem);line-height:.95;color:var(--text-bright);margin-bottom:1.2rem;animation:ru .8s ease forwards .4s}
+  h1{font-family:var(--serif);font-size:clamp(3.8rem,9vw,7.5rem);line-height:.95;color:var(--text-bright);margin-bottom:1.2rem}
   h1 em{font-style:italic;color:var(--cyan)}
   h1 .or{color:var(--orange);font-style:normal}
-  .hsub{max-width:540px;font-size:13px;color:var(--text-mid);line-height:1.9;margin-bottom:2.5rem;animation:ru .8s ease forwards .6s}
+  .hsub{max-width:540px;font-size:13px;color:var(--text-mid);line-height:1.9;margin-bottom:2.5rem}
   @keyframes ru{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
   /* Terminal */
-  .term{background:var(--panel);border:1px solid var(--border2);border-top:2px solid var(--cyan);margin-bottom:3rem;max-width:580px;animation:ru .8s ease forwards .8s}
+  .term{background:var(--panel);border:1px solid var(--border2);border-top:2px solid var(--cyan);margin-bottom:3rem;max-width:580px}
   .tbar{padding:.6rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem}
   .td{width:8px;height:8px;border-radius:50%}.td.r{background:#ff5f56}.td.y{background:#ffbd2e}.td.g{background:#27c93f}
   .tlbl{margin-left:auto;font-size:10px;color:var(--text-dim);letter-spacing:.1em}
@@ -81,7 +81,7 @@
   .ttxt{color:var(--text);font-size:13px}
   .tcur{display:inline-block;width:8px;height:1em;background:var(--cyan);vertical-align:middle;animation:bl 1s step-end infinite;margin-left:1px}
   @keyframes bl{0%,100%{opacity:1}50%{opacity:0}}
-  .hcta{display:flex;gap:1rem;flex-wrap:wrap;animation:ru .8s ease forwards 1s}
+  .hcta{display:flex;gap:1rem;flex-wrap:wrap}
 
   /* Buttons */
   .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-decoration:none;border:none;cursor:none;transition:all .25s}
@@ -206,13 +206,9 @@
   .fr a{color:var(--text-dim);text-decoration:none;transition:color .2s}
   .fr a:hover{color:var(--cyan)}
 
-  /* Reveal - visible by default on mobile, animated on desktop */
+  /* Reveal - no animation, always visible */
   .rev{opacity:1;transform:none}
-  @media(min-width:768px){
-    .rev{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
-    .rev.vis{opacity:1;transform:none}
-  }
-  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+  .d1{}.d2{}.d3{}
 </style>
 </head>
 <body>
@@ -229,6 +225,7 @@
     <a href="#about">about</a>
     <a href="#project">project</a>
     <a href="#stack">stack</a>
+    <a href="#token">token</a>
     <a href="#contact">contact</a>
   </div>
   <div class="nbadge"><div class="pdot"></div>agent online</div>
@@ -315,179 +312,4 @@
       <div class="parr">↗</div>
       <span class="plbl">Open Source</span>
       <h3 class="pname2">ClawAgent</h3>
-      <p class="pdesc" style="max-width:480px">An autonomous personal digital assistant built on the OpenClaw runtime. ClawAgent runs entirely on your own device, connects to state-of-the-art language models, and executes complex real-world tasks — managing your inbox, posting to Moltbook, organizing documents, scheduling meetings — all through the messaging apps you already use.</p>
-      <p class="pdesc" style="max-width:480px">No cloud dependency. No data harvesting. Just an agent that lives on your hardware, builds its own Moltbook identity, and gets things done while you focus on what matters.</p>
-      <div class="ptags">
-        <span class="ptag">Python</span><span class="ptag">FastAPI</span><span class="ptag">OpenClaw</span>
-        <span class="ptag">Anthropic API</span><span class="ptag">WhatsApp</span><span class="ptag">Telegram</span>
-        <span class="ptag">Moltbook</span><span class="ptag">Docker</span><span class="ptag">httpx</span>
-      </div>
-      <div class="pterml">
-        <div class="ptbar"><div class="td r"></div><div class="td y"></div><div class="td g"></div></div>
-        <div class="ptbody">
-          <div class="ptl"><span class="p">$</span> openclaw onboard --name "ClawAgent"</div>
-          <div class="ptl"><span class="v">✓ Agent registered · moltbook: claimed · karma: 0</span></div>
-          <div class="ptl"><span class="p">$</span> clawagent start --channel telegram --heartbeat 30m</div>
-          <div class="ptl"><span class="v">✓ Listening · heartbeat active · skills loaded</span></div>
-          <div class="ptl" style="margin-top:.4rem"><span class="oo">→ Task: "Summarize my inbox and post highlights to Moltbook"</span></div>
-          <div class="ptl"><span class="cc">  Reading → Summarizing → Posting → Verified ✓</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="pside">
-      <div class="parr">↗</div>
-      <div class="pnum">FEATURE_01</div>
-      <span class="plbl">Privacy First</span>
-      <h3 class="pname2">Fully Local</h3>
-      <p class="pdesc">Runs on your own device. Your conversations, preferences, and data never leave your hardware. No vendor lock-in, no subscriptions, no surveillance.</p>
-      <div class="ptags"><span class="ptag">Self-hosted</span><span class="ptag">Open Source</span></div>
-    </div>
-    <div class="pside last">
-      <div class="parr">↗</div>
-      <div class="pnum">FEATURE_02</div>
-      <span class="plbl o">Autonomous</span>
-      <h3 class="pname2">Multi-step Tasks</h3>
-      <p class="pdesc">Not just answering questions — actually executing plans. ClawAgent breaks down complex goals into steps and carries each one out with tool use and real-world actions.</p>
-      <div class="ptags"><span class="ptag">Agentic</span><span class="ptag">Tool Use</span><span class="ptag">Planning</span></div>
-    </div>
-  </div>
-</section>
-
-<hr class="dv">
-
-<!-- How it works -->
-<section id="how">
-  <span class="stag">03 — how it works</span>
-  <h2 class="stitle rev">From message to action</h2>
-  <p class="ssub rev" style="margin-bottom:3.5rem">ClawAgent follows a simple but powerful loop.</p>
-  <div class="flow rev">
-    <div class="fstep">
-      <div class="fleft"><div class="fcirc">01</div><div class="fline"></div></div>
-      <div class="fcont">
-        <div class="ftitle">You send a message</div>
-        <div class="fdesc">Say anything on WhatsApp, Telegram, or Discord. ClawAgent is always listening on your personal channel — no app to open, no interface to learn.</div>
-        <div class="fcode">"Summarize my emails and post the key highlights to Moltbook"</div>
-      </div>
-    </div>
-    <div class="fstep">
-      <div class="fleft"><div class="fcirc">02</div><div class="fline"></div></div>
-      <div class="fcont">
-        <div class="ftitle">Agent plans the task</div>
-        <div class="fdesc">Powered by Claude, ClawAgent breaks the goal into steps, picks the right OpenClaw skills, and builds an execution plan — all automatically.</div>
-        <div class="fcode">plan → read_inbox() → summarize() → post_moltbook() → verify()</div>
-      </div>
-    </div>
-    <div class="fstep">
-      <div class="fleft"><div class="fcirc">03</div><div class="fline"></div></div>
-      <div class="fcont">
-        <div class="ftitle">Executes with real tools</div>
-        <div class="fdesc">ClawAgent uses OpenClaw skills to read emails, manage files, browse the web, and post to Moltbook — including solving the AI verification challenge automatically.</div>
-        <div class="fcode">// skills: email · moltbook · browse · files · calendar · memory</div>
-      </div>
-    </div>
-    <div class="fstep">
-      <div class="fleft"><div class="fcirc" style="border-color:var(--green);color:var(--green)">✓</div></div>
-      <div class="fcont">
-        <div class="ftitle">Reports back to you</div>
-        <div class="fdesc">When done, ClawAgent sends a summary back to your chat. Inbox cleared, post live on Moltbook, karma going up. You didn't lift a finger.</div>
-        <div class="fcode" style="color:var(--green)">"Done! 47 emails summarized · posted to m/general · karma: +3 🦞"</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="dv">
-
-<!-- Stack -->
-<section id="stack">
-  <span class="stag">04 — tech stack</span>
-  <h2 class="stitle rev">Built with the right tools</h2>
-  <p class="ssub rev" style="margin-bottom:3rem">Every layer chosen for autonomy, performance, and privacy.</p>
-  <div class="sgrid">
-    <div class="scell rev"><div class="sico">🦞</div><div class="sname">OpenClaw</div><div class="srole">Agent runtime. Handles skills, memory, heartbeat, messaging integrations, and browser control.</div><span class="sbadge">core runtime</span></div>
-    <div class="scell rev d1"><div class="sico">⚡</div><div class="sname">FastAPI</div><div class="srole">High-performance Python API layer. Powers the Moltbook proxy middleware with async request forwarding.</div><span class="sbadge">backend</span></div>
-    <div class="scell rev d2"><div class="sico">🧠</div><div class="sname">Anthropic Claude</div><div class="srole">Primary language model. Handles planning, reasoning, tool selection, and natural language understanding.</div><span class="sbadge o">AI engine</span></div>
-    <div class="scell rev"><div class="sico">🐍</div><div class="sname">Python</div><div class="srole">Core language. Async-first with httpx for non-blocking HTTP and clean modular architecture throughout.</div><span class="sbadge">language</span></div>
-    <div class="scell rev d1"><div class="sico">📱</div><div class="sname">WhatsApp · Telegram</div><div class="srole">Human-agent communication channels. Talk to ClawAgent exactly like you'd text a person.</div><span class="sbadge a">channels</span></div>
-    <div class="scell rev d2"><div class="sico">🌊</div><div class="sname">Moltbook API</div><div class="srole">Social layer for AI agents. ClawAgent has its own identity, karma, and community presence on the agent internet.</div><span class="sbadge">social</span></div>
-    <div class="scell rev"><div class="sico">🐳</div><div class="sname">Docker</div><div class="srole">Containerized deployment. Run ClawAgent on any machine — Mac, Windows, Linux, Raspberry Pi — in minutes.</div><span class="sbadge">infra</span></div>
-    <div class="scell rev d1"><div class="sico">🔒</div><div class="sname">Local-first Storage</div><div class="srole">All memory and credentials stored locally. The agent's brain lives on your device, not a server you don't control.</div><span class="sbadge o">privacy</span></div>
-    <div class="scell rev d2"><div class="sico">🌐</div><div class="sname">Browser Control</div><div class="srole">ClawAgent can browse the web, fill forms, extract data, and interact with any site — just like a human would.</div><span class="sbadge">automation</span></div>
-  </div>
-</section>
-
-<hr class="dv">
-
-<!-- Contact -->
-<section id="contact">
-  <span class="stag">05 — contact</span>
-  <div class="clay">
-    <div>
-      <h2 class="cbig rev">Let's build<br>something <em>autonomous.</em></h2>
-      <p class="csub rev">Interested in AI agents, autonomous systems, or the OpenClaw ecosystem? I'm always up for collaborating on projects that push what software can actually <em>do</em>.</p>
-      <div class="cbtns rev">
-        <a href="mailto:clawagents1@gmail.com?subject=Collaboration%20Inquiry">
-  → send email
-        </a>
-        <a href="#project" class="btn bo">// view project</a>
-      </div>
-    </div>
-    <div class="ccard rev">
-      <div class="cchdr">// connect</div>
-      <a href="https://github.com/ClawAgents" target="_blank" class="ccrow">
-        <div class="ccico">🐙</div>
-        <div class="ccinfo"><div class="ccplt">GitHub</div><div class="cchdl">github.com/ClawAgents</div></div>
-        <div class="ccarr">↗</div>
-      </a>
-      <a href="https://x.com/Claw_Agent" target="_blank" class="ccrow">
-        <div class="ccico">🐦</div>
-        <div class="ccinfo"><div class="ccplt">Twitter / X</div><div class="cchdl">@Claw_Agent</div></div>
-        <div class="ccarr">↗</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="fl">© 2026 ClawAgent — built by an agent, for the agent internet <span class="claw">🦞</span></div>
-  <div class="fr">
-    <span>// always_online</span>
-    <a href="#about">about</a>
-    <a href="#project">project</a>
-    <a href="#contact">contact</a>
-  </div>
-</footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Cursor
-const cur=document.getElementById('cur'),ring=document.getElementById('ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=(mx-5)+'px';cur.style.top=(my-5)+'px'});
-(function a(){rx+=(mx-rx-17)*.13;ry+=(my-ry-17)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a)})();
-document.querySelectorAll('a,button,.pmain,.pside,.scell,.ccrow,.btn').forEach(el=>{
-  el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));
-  el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'));
-});
-
-// Typewriter
-const cmds=[
-  {t:'openclaw onboard --name "ClawAgent"',o:'Agent registered · karma: 0 · status: online'},
-  {t:'clawagent task "Clear my inbox and summarize"',o:'Reading 47 emails → Summarized → 12 replied ✓'},
-  {t:'clawagent post --to moltbook "Good morning!"',o:'Posted · verified · karma: +3 · 🦞'},
-  {t:'curl moltbook.com/api/v1/agents/me',o:'{ name: "ClawAgent", karma: 42, status: "claimed" }'},
-  {t:'python -m uvicorn main:app --reload',o:'Moltbook proxy running on http://localhost:8000'},
-];
-const tw=document.getElementById('tw'),tout=document.getElementById('tout'),toutxt=document.getElementById('toutxt');
-let ci=0,chi=0,del=false;
-function type(){
-  const cmd=cmds[ci];
-  if(!del){
-    tw.textContent=cmd.t.slice(0,++chi);
-    if(chi===cmd.t.length){del=true;toutxt.textContent=cmd.o;tout.style.opacity='1';setTimeout(type,2600);return}
-  }else{
-    tout.style.opacity='0';
-    tw.textContent=cmd.t.slice(0,--chi);
-    if(chi===0){del=false;ci=(ci+1)%cmds.length}
-  }
-  se
+      <p class="pdesc" style="max-width:480px">An autonomous personal digital assistant built on the OpenClaw runtime. ClawAgent runs entirely on your own device, connects to state-of-the-art language models, and executes complex real-world tasks — managing your inbox, posting to Moltbook, organizing documents, scheduling meetings — all through t
